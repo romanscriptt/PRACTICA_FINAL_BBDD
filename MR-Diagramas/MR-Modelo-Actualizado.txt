@@ -1,0 +1,32 @@
+DEPARTAMENTOS (DEPT_NO, DNOMBRE, TOLOC)
+PK(DEPT_NO)
+
+
+EMPLEADOS (EMP_NO, APELLIDO, OFICIO, DIA, SALARIO_EUR,
+           COMISION_EUR, FECHA_ACT, DEPT_NO, EMP_NO_JEFE)
+PK(EMP_NO)
+FK(DEPT_NO)     / DEPARTAMENTOS  NN         
+FK(EMP_NO_JEFE) / EMPLEADOS      NN
+
+– Garantiza que todo empleado pertenece a un departamento existente
+– Garantiza que el supervisor de un empleado es a su vez un empleado existente en la empresa 
+
+PRESUPUESTOS (DEPT_NO, AÑO, IMPORTE)
+PK(DEPT_NO, AÑO)                            
+FK(DEPT_NO) / DEPARTAMENTOS  NN      
+     
+–  Garantiza que todo presupuesto anual está vinculado a un departamento existente
+COORDINADORES (EMP_NO, DEPT_NO)
+PK(EMP_NO)
+FK(EMP_NO)  / EMPLEADOS       NN           
+FK(DEPT_NO) / DEPARTAMENTOS   NN  ÚNICO     
+– Garantiza que todo coordinador es previamente un empleado existente en la empresa
+–  Garantiza que el coordinador dirige un departamento existente
+
+TESOREROS (EMP_NO, DEPT_NO)
+PK(EMP_NO)
+FK(EMP_NO)  / EMPLEADOS       NN          
+FK(DEPT_NO) / DEPARTAMENTOS   NN           
+– Garantiza que todo tesorero es previamente un empleado existente en la empresa
+– Garantiza que el tesorero está asignado a un departamento existente
+

@@ -1,0 +1,11 @@
+DEPARTAMENTOS (dept_no, dnombre)
+PK(dept_no)
+
+EMPLEADOS (emp_no, apellido, oficio, fecha_alt, salario,
+           comision, dir, dept_no, emp_no_jefe)
+PK(emp_no)
+FK(dept_no)     / DEPARTAMENTOS  NN   
+FK(emp_no_jefe) / EMPLEADOS            
+
+→ Garantizar como mínimo una tupla en EMPLEADOS
+  por cada tupla que haya en DEPARTAMENTOS
